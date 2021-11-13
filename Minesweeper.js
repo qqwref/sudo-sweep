@@ -157,62 +157,40 @@ class Minesweeper {
 		
 		// nono verticals
         for (let i = 0; i < this.size * this.subw; i++) {
-			// get nonosweeper clues
-			var nono_array = [];
-			var this_clue = 0;
+			// get count
+			var nono_count = 0;
 			for(let j = 0; j < this.size * this.subh; j++) {
 				if (this.grid[i][j] == '⁕') {
-					this_clue += 1;
-				} else {
-					if (this_clue > 0) {
-						nono_array.push(this_clue);
-					}
-					this_clue = 0;
+					nono_count += 1;
 				}
 			}
-			if (this_clue > 0 || nono_array.length == 0) nono_array.push(this_clue);
-			nono_array.reverse();
-			
-            for (let j = 0; j < nono_array.length; j++) {
-                const x = i * cellSize;
-                const y = -(j+1) * 60 / this.subh;
-                noStroke();
-                textAlign(CENTER, CENTER);
-                textFont('Fira Code');
-				textSize(cellSize * .5);
-				fill(light);
-                text(nono_array[j], x + cellSize / 2, y + 60 / this.subh / 2 + 2);
-            }
+			const x = i * cellSize;
+			const y = -1 * 60 / this.subh;
+			noStroke();
+			textAlign(CENTER, CENTER);
+			textFont('Fira Code');
+			textSize(cellSize * .5);
+			fill(light);
+			text(nono_count, x + cellSize / 2, y + 60 / this.subh / 2 + 2);
         }
 		
 		// nono horizontals
 		for (let i = 0; i < this.size * this.subh; i++) {
-			// get nonosweeper clues
-			var nono_array = [];
-			var this_clue = 0;
+			// get count
+			var nono_count = 0;
 			for(let j = 0; j < this.size * this.subw; j++) {
 				if (this.grid[j][i] == '⁕') {
-					this_clue += 1;
-				} else {
-					if (this_clue > 0) {
-						nono_array.push(this_clue);
-					}
-					this_clue = 0;
+					nono_count += 1;
 				}
 			}
-			if (this_clue > 0 || nono_array.length == 0) nono_array.push(this_clue);
-			nono_array.reverse();
-			
-            for (let j = 0; j < nono_array.length; j++) {
-                const x = -(j+1) * cellSize;
-                const y = i * 60 / this.subh;
-                noStroke();
-                textAlign(CENTER, CENTER);
-                textFont('Fira Code');
-				textSize(cellSize * .5);
-				fill(light);
-                text(nono_array[j], x + cellSize / 2, y + 60 / this.subh / 2 + 2);
-            }
+			const x = -1 * cellSize;
+			const y = i * 60 / this.subh;
+			noStroke();
+			textAlign(CENTER, CENTER);
+			textFont('Fira Code');
+			textSize(cellSize * .5);
+			fill(light);
+			text(nono_count, x + cellSize / 2, y + 60 / this.subh / 2 + 2);
         }
 		
         this.drawGuidelines(cellSize);
