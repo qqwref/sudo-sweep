@@ -27,8 +27,8 @@ function setup() {
 	createCanvas(windowWidth, windowHeight);
 	createBackground();
 
-	sudo = new Sudoku(width / 2 - 60 * w*h - 30, height / 2 - 30 * w*h, w, h);
-	sweep = new Minesweeper(width / 2 + 30, height / 2 - 30 * w*h, w, h, subw, subh);
+	sudo = new Sudoku(width / 2 - 75 * w*h - 30, height / 2 - 30 * w*h + 60, w, h);
+	sweep = new Minesweeper(width / 2 + 15 * w*h + 30, height / 2 - 60 * w*h + 30, w, h, subw, subh);
 	sweep.setMines(sudo.grid);
 
 	document.addEventListener('contextmenu', event => event.preventDefault());
@@ -110,8 +110,8 @@ function displayTime() {
 
 function newPuzzle() {
 
-	sudo = new Sudoku(width / 2 - 60 * w*h - 30, height / 2 - 30 * w*h, w, h);
-	sweep = new Minesweeper(width / 2 + 30, height / 2 - 30 * w*h, w, h, subw, subh);
+	sudo = new Sudoku(width / 2 - 75 * w*h - 30, height / 2 - 30 * w*h + 60, w, h);
+	sweep = new Minesweeper(width / 2 + 15 * w*h + 30, height / 2 - 30 * w*h + 60, w, h, subw, subh);
 	sweep.setMines(sudo.grid);
 
 	startTime = "";
